@@ -1,1 +1,480 @@
-<h1>Hello World Wide Web!</h1>
+<h1>Hello World Wide Web!</h1><!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornelia Manda | Portfolio | Marketing & Content Creation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* reset & typography */
+        * {
+            box-sizing: border-box; 
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            font-size: 16px; 
+            color: #333;
+            background-color: #E0E2DF;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, a, th {
+            font-family: "Playfair Display", serif;
+        }
+
+        /* --- Link Reset: Prevents blue/purple default colors --- */
+        a, a:visited, a:active {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;    
+            padding: 0;
+            background-color: #E0E2DF;
+            min-height: 100vh;
+        }
+
+        /* --- Navigation System --- */
+        header {
+            display: grid;
+            grid-template-columns: 30% 70%;
+            align-items: center;
+            background-color: #DDBDBE;
+            padding: 17px 60px;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            color: #655C5B;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: right;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-left: 40px;
+            position: relative; 
+            vertical-align: middle;
+        }
+
+        nav a {
+            color: #655C5B !important; 
+            font-size: 1.1em;
+            display: inline-block;
+            padding: 10px 0;
+        }
+
+        nav a:hover {
+            color: white !important; 
+        }
+
+        /* --- Dropdown Logic --- */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #DDBDBE; 
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            text-align: left;
+            padding: 10px 0;
+            top: 100%; 
+            left: 0; 
+            margin-top: -5px;
+        }
+
+        .dropdown-content li {
+            display: block;
+            margin: 0;
+        }
+
+        .dropdown-content a, .dropdown-content a:visited {
+            color: #655C5B !important; 
+            padding: 12px 20px; 
+            display: block; 
+            font-size: 1.1em; 
+            font-family: "Playfair Display", serif;
+            font-weight: 400;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #E0E2DF;
+            color: #816B6E !important;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* page title */
+        .page-title {
+            text-align: center;
+            color: #816B6E;
+            font-size: 3.8em;
+            margin: 1px 0 60px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1em;
+            background-color: #C99B9B;
+            color: white !important;
+            text-decoration: none;
+            font-family: "Playfair Display", serif;
+            font-weight: bold;
+            transition: all 0.4s ease;
+            margin-left: 80px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #816B6E;
+            transform: rotate(-2deg);
+        }
+
+        /* works layout */
+        .films-container {
+            padding: 0 100px 100px 100px; 
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+        }
+
+        .film-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Image Wrapper Styling */
+        .image-wrapper {
+            position: relative; 
+            width: 100%;
+            box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.15);
+        }
+
+        /* Portrait orientation adjustments (Works 1, 2, 3) */
+        .image-portrait {
+            height: 550px;
+            max-width: 310px;
+            margin: 0 auto;
+        }
+
+        /* Landscape orientation adjustment (Work 4 - ENN) */
+        .image-landscape {
+            height: 350px; 
+            width: 100%;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: 5px solid white; 
+        }
+
+        /* rotated date on the side */
+        .film-date {
+            position: absolute;
+            top: 50%; 
+            font-family: "Roboto", sans-serif;
+            color: #C99B9B; 
+            font-weight: 700;
+            font-size: 1.3em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            white-space: nowrap; 
+            z-index: 5;
+        }
+
+        .date-left {
+            left: -40px; 
+            transform: translate(-50%, -50%) rotate(-90deg);
+        }
+
+        .date-right {
+            right: -40px; 
+            transform: translate(50%, -50%) rotate(90deg);
+        }
+
+        /* text styling */
+        .film-info {
+            padding: 10px;
+        }
+
+        .film-title {
+            font-size: 2.5em;
+            color: #816B6E;
+            margin: 0 0 10px 0;
+            line-height: 1.1;
+        }
+
+        .film-description {
+            font-size: 1em;
+            color: #5D4F51;
+            margin-bottom: 25px;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .watch-btn {
+            display: inline-block;
+            padding: 10px 30px;
+            background-color: transparent;
+            color: #816B6E !important;
+            border: 2px solid #816B6E;
+            text-decoration: none;
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .watch-btn:hover {
+            background-color: #816B6E;
+            color: white !important;
+            transform: rotate(-2deg);
+        }
+
+        /* award/role badge */
+        .award-badge {
+            position: absolute;
+            top: -25px;
+            right: -25px; 
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background-color: #DDBDBE;
+            color: #655C5B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            z-index: 10;
+            transform: rotate(15deg); 
+        }
+
+        .award-badge h3 {
+            font-size: 0.8em;
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .image-right .award-badge {
+            right: auto;
+            left: -25px;
+            transform: rotate(-15deg);
+        }
+
+        /* footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 40px;
+            color: #655C5B;
+            font-size: 0.9em;
+            border-top: 1px solid #DDBDBE;
+        }
+
+        .footer-table-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-table {
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .footer-table th {
+            color: #816B6E;
+            font-size: 1.1em;
+            padding: 5px 10px 5px 0;
+        }
+
+        .footer-table th:not(:first-child) {
+            padding-left: 30px;
+        }
+
+        .footer-table td {
+            padding: 5px 0;
+            font-family: "Roboto", sans-serif;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .footer-table a:hover {
+            color: #816B6E !important;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            opacity: 0.8;
+            font-size: 0.8em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <div class="logo">Cornelia Manda</div>
+            <nav>
+                <ul>
+                    <li><a href="https://cornelia-manda.github.io/home/">Home</a></li>
+                    <li><a href="https://cornelia-manda.github.io/portfolio/">Portfolio</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="https://cornelia-manda.github.io/projects/">Projects</a>
+                        <ul class="dropdown-content">
+                            <li><a href="https://cornelia-manda.github.io/videography/">Videography</a></li>
+                            <li><a href="https://cornelia-manda.github.io/branding/">Branding</a></li>
+                            <li><a href="https://cornelia-manda.github.io/web-app/">Web and App</a></li>
+                            <li><a href="#">Graphic Design</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="https://cornelia-manda.github.io/contact-aboutme/">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <a href="https://cornelia-manda.github.io/portfolio/" class="back-button">← Back to Portfolio</a>
+
+        <h1 class="page-title">Marketing &<br>Content Creation</h1>
+
+        <main class="films-container">
+
+            <!-- Work 1: GBDA Autocomplete Interview (Portrait) -->
+            <section class="film-row">
+                <div class="image-wrapper image-portrait">
+                    <div class="film-date date-left">2026</div>
+                    <div class="award-badge">
+                        <h3>Director &amp;<br>Editor</h3>
+                    </div>
+                    <img src="gbda.jpg" alt="GBDA Autocomplete Interview Reel Cover">
+                </div>
+                
+                <div class="film-info">
+                    <h2 class="film-title">GBDA Autocomplete Interview</h2>
+                    <p class="film-description">
+                        An engaging, social-first Instagram Reel designed to clear up common misconceptions and answer burning questions for future Global Business and Digital Arts (GBDA) students. Taking ownership of the project from concept to screen, I directed and edited the piece to establish a witty, fast-paced, and highly informative resource that directly supports prospective student recruitment.
+                    </p>
+                    <a href="https://www.instagram.com/p/DZDcqGvTiU-/" target="_blank" class="watch-btn">Watch Reel</a>
+                </div>
+            </section>
+
+            <!-- Work 2: Day in a Life Video (Portrait) -->
+            <section class="film-row">
+                <div class="film-info">
+                    <h2 class="film-title">Day in the Life: Co-President</h2>
+                    <p class="film-description">
+                        A dynamic, behind-the-scenes YouTube Short chronicling a day in my life serving as the St. Mary's Co-President. Aimed at humanizing student leadership and boosting school engagement, I completely filmed and edited this portrait-format piece to package high-energy moments into a crisp, relatable, and visually structured narrative.
+                    </p>
+                    <a href="https://youtu.be/gGEb-zH743I" target="_blank" class="watch-btn">Watch Short</a>
+                </div>
+
+                <div class="image-wrapper image-portrait image-right">
+                    <div class="film-date date-right">2023 / 2024</div>
+                    <div class="award-badge">
+                        <h3>Filmed &amp;<br>Edited</h3>
+                    </div>
+                    <img src="day.jpg" alt="Day in the Life Video Cover">
+                </div>
+            </section>
+
+            <!-- Work 3: Awkward Calendar Promotional Reel (Portrait) -->
+            <section class="film-row">
+                <div class="image-wrapper image-portrait">
+                    <div class="film-date date-left">2026</div>
+                    <div class="award-badge">
+                        <h3>Creative<br>Editing</h3>
+                    </div>
+                    <img src="calendar.jpg" alt="Awkward Calendar Reel Cover">
+                </div>
+                
+                <div class="film-info">
+                    <h2 class="film-title">The Awkward Calendar</h2>
+                    <p class="film-description">
+                        A collaborative, humor-driven Instagram Reel produced alongside my manager to showcase office culture. Beyond managing the on-location filming and snappy video pacing, I carefully edited the featured photographs to balance deliberate awkward comedy with high-quality visual aesthetics, driving significant audience engagement and internal workplace morale.
+                    </p>
+                    <a href="https://www.instagram.com/reel/DTGc_Z6ETpz/" target="_blank" class="watch-btn">Watch Reel</a>
+                </div>
+            </section>
+
+            <!-- Work 4: ENN Broadcast (Landscape) -->
+            <section class="film-row">
+                <div class="film-info">
+                    <h2 class="film-title">Eagles News Network (ENN)</h2>
+                    <p class="film-description">
+                        Recognizing a gap in community-wide communication, I took the personal initiative as Co-President to completely revive the Eagles News Network (ENN) broadcast. Operating as a true one-person production team, I spearheaded the relaunch by serving as the sole news anchor, executive producer, and technical video editor to establish a vital news source for the student body.
+                    </p>
+                    <a href="https://www.instagram.com/p/C8726gaJAgP/" target="_blank" class="watch-btn">Watch Broadcast</a>
+                </div>
+
+                <div class="image-wrapper image-landscape image-right">
+                    <div class="film-date date-right">2024</div>
+                    <div class="award-badge">
+                        <h3>Sole<br>Producer</h3>
+                    </div>
+                    <img src="enn.jpg" alt="Eagles News Network Broadcast Cover">
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="footer-table-wrapper">
+                <table class="footer-table">
+                    <tr>
+                        <th>Email:</th>
+                        <td><a href="mailto:cmanda@uwaterloo.ca">cmanda@uwaterloo.ca</a></td>
+                        
+                        <th>School:</th>
+                        <td><a href="https://uwaterloo.ca/stratford-school-of-interaction-design-and-business/global-business-and-digital-arts" target="_blank">University of Waterloo</a></td>
+                        
+                        <th>Location:</th>
+                        <td>Kitchener-Waterloo, Ontario</td>
+                    </tr>
+                </table>
+            </div>
+
+            <p class="copyright">&copy; 2026 Cornelia Manda. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
