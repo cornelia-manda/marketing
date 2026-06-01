@@ -1,4 +1,4 @@
-<h1>Hello World Wide Web!</h1><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-CA">
 <head>
     <meta charset="UTF-8">
@@ -125,16 +125,27 @@
             display: block;
         }
 
-        /* page title */
+        /* page title & header area */
         .page-title {
             text-align: center;
             color: #816B6E;
             font-size: 3.8em;
-            margin: 1px 0 60px 0;
+            margin: 1px 0 10px 0;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 700;
-            line-height: 1.2;
+            line-height: 1.21;
+        }
+
+        .page-subheader {
+            text-align: center;
+            color: #655C5B;
+            font-size: 1.3em;
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            margin: 0 0 60px 0;
+            letter-spacing: 1px;
+            opacity: 0.9;
         }
 
         .back-button {
@@ -186,10 +197,10 @@
             margin: 0 auto;
         }
 
-        /* Landscape orientation adjustment (Work 4 - ENN) */
+        /* Landscape orientation adjustment (Work 4 - ENN widescreen ratio) */
         .image-landscape {
-            height: 350px; 
             width: 100%;
+            aspect-ratio: 16 / 9;
         }
 
         .image-wrapper img {
@@ -261,7 +272,7 @@
             transform: rotate(-2deg);
         }
 
-        /* award/role badge */
+        /* Default award/role badge (Top Right) */
         .award-badge {
             position: absolute;
             top: -25px;
@@ -289,10 +300,27 @@
             font-family: "Roboto", sans-serif;
         }
 
+        /* Standard flip style for left-aligned image blocks */
         .image-right .award-badge {
             right: auto;
             left: -25px;
             transform: rotate(-15deg);
+        }
+
+        /* --- Day in the Life Custom Badge (Forces it to Top Right) --- */
+        .image-wrapper.badge-top-right .award-badge {
+            left: auto;
+            right: -25px;
+            transform: rotate(15deg);
+        }
+
+        /* --- ENN Custom Bottom-Left Badge Positioning --- */
+        .image-wrapper.badge-bottom-left .award-badge {
+            top: auto;
+            bottom: -25px;
+            left: -25px;
+            right: auto;
+            transform: rotate(-10deg);
         }
 
         /* footer */
@@ -374,6 +402,7 @@
         <a href="https://cornelia-manda.github.io/portfolio/" class="back-button">← Back to Portfolio</a>
 
         <h1 class="page-title">Marketing &<br>Content Creation</h1>
+        <div class="page-subheader">A curated collection of my favourite works</div>
 
         <main class="films-container">
 
@@ -401,12 +430,12 @@
                 <div class="film-info">
                     <h2 class="film-title">Day in the Life: Co-President</h2>
                     <p class="film-description">
-                        A dynamic, behind-the-scenes YouTube Short chronicling a day in my life serving as the St. Mary's Co-President. Aimed at humanizing student leadership and boosting school engagement, I completely filmed and edited this portrait-format piece to package high-energy moments into a crisp, relatable, and visually structured narrative.
+                        A dynamic, portrait-format video chronicling a day in my life serving as the St. Mary's Co-President from 2023–2024. Aimed at humanizing student leadership and boosting school engagement, I completely filmed and edited this piece to package high-energy moments into a crisp, relatable, and visually structured narrative.
                     </p>
-                    <a href="https://youtu.be/gGEb-zH743I" target="_blank" class="watch-btn">Watch Short</a>
+                    <a href="https://youtu.be/gGEb-zH743I" target="_blank" class="watch-btn">Watch Video</a>
                 </div>
 
-                <div class="image-wrapper image-portrait image-right">
+                <div class="image-wrapper image-portrait image-right badge-top-right">
                     <div class="film-date date-right">2023 / 2024</div>
                     <div class="award-badge">
                         <h3>Filmed &amp;<br>Edited</h3>
@@ -439,15 +468,15 @@
                 <div class="film-info">
                     <h2 class="film-title">Eagles News Network (ENN)</h2>
                     <p class="film-description">
-                        Recognizing a gap in community-wide communication, I took the personal initiative as Co-President to completely revive the Eagles News Network (ENN) broadcast. Operating as a true one-person production team, I spearheaded the relaunch by serving as the sole news anchor, executive producer, and technical video editor to establish a vital news source for the student body.
+                        Recognizing a gap in community-wide communication, I took the personal initiative as Co-President to completely revive the Eagles News Network (ENN) broadcast. Distributed as an engaging digital Reel, I single-handedly steered the relaunch workflow by serving as the sole video editor, sole producer, and on-camera news anchor to deliver an impactful, consistent information channel for the student body.
                     </p>
-                    <a href="https://www.instagram.com/p/C8726gaJAgP/" target="_blank" class="watch-btn">Watch Broadcast</a>
+                    <a href="https://www.instagram.com/p/C8726gaJAgP/" target="_blank" class="watch-btn">Watch Reel</a>
                 </div>
 
-                <div class="image-wrapper image-landscape image-right">
+                <div class="image-wrapper image-landscape image-right badge-bottom-left">
                     <div class="film-date date-right">2024</div>
                     <div class="award-badge">
-                        <h3>Sole<br>Producer</h3>
+                        <h3>Editor &amp;<br>Producer</h3>
                     </div>
                     <img src="enn.jpg" alt="Eagles News Network Broadcast Cover">
                 </div>
